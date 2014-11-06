@@ -28,7 +28,7 @@ int main()
 	}
 	
 	pid = getpid();
-	ch = 'A';
+	ch = (pid & 0x0F) + 'A';
 	write(socket_fd,&ch,1);
 	printf("pid=%d sent ch=%c \n",pid,ch);
 	read(socket_fd,&ch,sizeof(ch));

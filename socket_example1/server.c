@@ -39,15 +39,15 @@ int main()
 		printf("in server\n");
 		
 		client_len = sizeof(client_add);
-		ret = accept(server_fd,(struct sockaddr*)&client_add,&client_len);
+		client_fd = accept(server_fd,(struct sockaddr*)&client_add,&client_len);
 		if (ret == -1) {
 			perror("error in accepting:");
 			exit(EXIT_FAILURE);
 		}
 
-		read(client_fd,&ch,1);
+		ret = read(client_fd,&ch,sizeof(char));
 		printf("client send ch = %c\n",ch);
-		ch = 'B';
+		ch++;
 		write(client_fd,&ch,sizeof(char));
 		printf("server sent ch =%c\n",ch);
 		close(client_fd);

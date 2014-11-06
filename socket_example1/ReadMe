@@ -1,0 +1,7 @@
+Simple example of AF_UNIX family of socket.
+
+client send request to connect to server.If
+connect succeds client send data to server
+and server prints it on console.
+
+run client or server in any order.   
